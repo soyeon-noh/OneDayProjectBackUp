@@ -135,8 +135,9 @@ public class ScoreService {
 		
 		while(true){
 			strName = scan.nextLine();
-			
-			if(strName.length() > 3) {
+			if(strName.equals("QUIT")) {
+				return strName;
+			}else if(strName.length() > 3) {
 				System.out.println("이름은 세글자까지만 입력해주세요.");
 				System.out.print("이름 >> ");
 				continue;
