@@ -7,8 +7,5 @@ public class ScoreEx {
 	public static void main(String[] args) {
 		ScoreService ss = new ScoreService();
 		ss.menu();
-		ss.input();
-		ss.printStd();
-		ss.printList();
 	}
 }
