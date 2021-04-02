@@ -280,7 +280,7 @@ public class ScoreService {
 	private void numErrorMessage() {
 		System.out.printf("오류 :  잘못된 입력입니다.\n");
 		System.out.printf("\t0 ~ 100까지의 숫자를 다시 입력해주세요.\n");
-		System.out.print("     >> ");
+		System.out.print("      >> ");
 	}
 
 
