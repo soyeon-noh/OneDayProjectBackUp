@@ -9,21 +9,9 @@
 </head>
 <body>
 	<h1>섭취정보 시스템</h1>
+	<h2>날짜 검색</h2>
 	
-		<form action="/food/insert">
-			<button>섭취정보등록</button>
-		</form>
-		
-		
-		<form action="/food/date" method="GET">
-			날짜
-			<input type="text" name="my_date">
-			<button>조회</button>
-		</form>
-		
-		<hr>
-		
-		<c:if test="${ empty FOODS }"> 등록된 정보가 없습니다. </c:if>
+		<c:if test="${ empty DATEFOODS }"> 등록된 정보가 없습니다. </c:if>
 		<table  width ="1000">
 			<tr align = "center">
 				<th>날짜</th>
@@ -36,7 +24,7 @@
 				<th>탄수화물</th>
 				<th>당류</th>
 			</tr>
-			<c:forEach items="${FOODS}" var="FOOD">
+		<c:forEach items="${DATEFOODS}" var="DATEFOOD">
 			<tr>
 				<td align = "center">${FOOD.my_date}</td>
 				<td>${FOOD.fd_name}</td>
@@ -51,6 +39,5 @@
 			</c:forEach>
 			
 		</table>
-		
 </body>
 </html>

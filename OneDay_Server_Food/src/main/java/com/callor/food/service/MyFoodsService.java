@@ -9,12 +9,14 @@ import com.callor.food.model.MyFoodVO;
 public interface MyFoodsService {
 
 	// CREATE 데이터 추가
-	public void insert(MyFoodVO myFoodVO);
+	public Integer insert(MyFoodVO myFoodVO);
 	
 	// READ 데이터 조회
 	public List<MyFoodDTO> selectAll();
 	
 	// READ 날짜로 데이터 조회
-	public List<MyFoodVO> selectByDate();
+	public List<MyFoodDTO> selectByDate(String date);
 	
+	// READ 식품코드로 데이터 조회
+	public List<MyFoodDTO> selectByName(String fname);
 }

@@ -13,6 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class MyFoodDTO {
     private String my_date; // 날짜
+    private String fd_code; // 식품코드
     private String fd_name; // 식품명
     private Integer my_intake; // 섭취량
     private Integer fd_content; // 총내용량(g)

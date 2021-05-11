@@ -16,35 +16,44 @@ import com.callor.food.model.MyFoodDTO;
 import com.callor.food.service.MyFoodsService;
 import com.callor.food.service.impl.MyFoodsServiceImplV1;
 
-@WebServlet("/")
-public class HomeController extends HttpServlet{
-	private static final long serialVersionUID = 2486075485629848361L;
-
-	private MyFoodsService mService;
+@WebServlet("/date/*")
+public class DateController extends HttpServlet{
+	private static final long serialVersionUID = -1205231673048782193L;
 	
-	public HomeController() {
+	protected MyFoodsService mService;
+
+	public DateController() {
 		mService = new MyFoodsServiceImplV1();
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		req.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(req, resp);
+
 		
-		List<MyFoodDTO> myFoodList = mService.selectAll();
 		
-		System.out.println(myFoodList);
-		
+		String fd_name = req.getParameter("fd_name");
+		List<MyFoodDTO> myFoodList = mService.selectByDate(fd_name);
 		ServletContext app = this.getServletContext();
-		app.setAttribute("FOODS", myFoodList );
+		app.setAttribute("DATEFOODS", myFoodList );
 		
 		RequestDispatcher disp
-			= app.getRequestDispatcher("/WEB-INF/views/home.jsp");
+			= app.getRequestDispatcher("/WEB-INF/views/date.jsp");
 		
 		disp.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String subPath = req.getPathInfo();
+		System.out.println(subPath);
+
+		resp.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
+		PrintWriter out = resp.getWriter();
+		
+		
 		
 	}
+
+	
 }
